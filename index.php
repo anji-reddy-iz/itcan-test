@@ -89,7 +89,11 @@ if($sqlQuery === false)
                                 echo "<td>".$coupon['tag']."</td>";
                                 echo "</tr>";
                             }
-
+                            if(count($coupons) == 0){
+                                echo "<tr>";
+                                echo "<td colspan='11' class='text-center'>Coupons are not available</td>";
+                                echo "<tr>";
+                            }
                             ?>
                         </tbody>
                     </table>
@@ -148,7 +152,7 @@ if($sqlQuery === false)
                 var btn = $(this);
                 var btnText = "UPLOAD";
                 var btnLoadingText = "Please wait...";
-                if( btn.html() == btnText ){
+                if( btn.html() == btnText ) {
                     var file = document.getElementById('csvfile').files[0];
                     var hasError = false;
                     if(file !=undefined){
